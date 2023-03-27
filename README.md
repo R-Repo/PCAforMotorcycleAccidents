@@ -29,6 +29,31 @@ Notetably there is no gyroscope (you don't need on a car!). The sensors store in
 
 Hopefully my expertly drawn addition helps with understanding where these boxes are located on motorcycles.
 
+## Wider context
+
+Motor vechile accidents are a major problem in East Africa (where the company I developed this solution for is from). Moreover motocycle taxis (or Motos as they are called locally) are a the main form of transport for most of the population.
+
+Table below shows that motorvechile deaths per 100,000 inhabitants are globally highest in Africa. The system being designed will be able to alert emergency services when a moto-taxi has had a serious colision.
+
+| Country/region        |   Deaths per 100k/year |
+|:----------------------|-----------------------:|
+| Africa                |                   26.6 |
+| South-East Asia       |                   20.7 |
+| Global                |                   18.2 |
+| Eastern Mediterranean |                   18   |
+| Western Pacific       |                   16.9 |
+| Americas              |                   15.6 |
+| Europe                |                    9.3 |
+
+[wiki source](https://en.wikipedia.org/wiki/List_of_countries_by_traffic-related_death_rate)
+
+Kenya is particurally bad globally with 29.1 deaths per 100k inhabitants per year. Which means you have a 0.0291% chance of dying in a vehcile accident (Interesting fact: Obama's dad died in a car collision in Kenya). 
+
+| Country/region   | Continent   |   Deaths per 100k/year |   Percentile |
+|:-----------------|:------------|-----------------------:|-------------:|
+| Kenya            | Africa      |                   29.1 |     0.936508 |
+
+
 # The data
 
 Below is a few rows and important columns from the dataset.
