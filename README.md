@@ -22,4 +22,9 @@ Notetably there is no gyroscope (you don't need on a car!). The sensors store in
 
 Hopefully my expertly drawn addition helps with understanding where these boxes are located on motorcycles.
 
+# The data
+
+'| device.name   |   timestamp |   x.acceleration |   y.acceleration |   z.acceleration | engine.ignition.status.1   |\n|:--------------|------------:|-----------------:|-----------------:|-----------------:|:---------------------------|\n| Bike 07       | 1.65662e+09 |            0.236 |           -0.241 |           -0.128 | False                      |\n| Bike 07       | 1.65662e+09 |            0.236 |           -0.241 |           -0.128 | False                      |\n| Bike 07       | 1.65662e+09 |            0.132 |            0.067 |           -0.03  | True                       |\n| Bike 07       | 1.65662e+09 |            0.146 |            0.097 |           -0.085 | True                       |\n| Bike 07       | 1.65662e+09 |           -0.06  |            0.079 |            0.603 | True                       |'
+
+
 
