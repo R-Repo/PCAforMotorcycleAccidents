@@ -17,6 +17,7 @@ Insurance black boxes were designed for cars. Retrofitting them on to motorcycle
 
 - Devices have to fitted at awkward angles. This was throwing off the device calibration (i.e. the device does not know which way is forward)
 - The devices are placed close to the engine. This means vibration from the engine presents itself as significant noise to the acclerometer.
+- Motorcycles are much more bumpy then cars.
 
 The insurance boxes have two sensors:
 
@@ -65,6 +66,12 @@ Below is a few rows and important columns from the dataset.
 | Bike 07       | 1.65662e+09 |            0.132 |            0.067 |           -0.03  | True                       |
 | Bike 07       | 1.65662e+09 |            0.146 |            0.097 |           -0.085 | True                       |
 | Bike 07       | 1.65662e+09 |           -0.06  |            0.079 |            0.603 | True                       |'
+
+This bike is uncalibrated so the x acceleration is not necessarily the forward acceleration. We need to change the coordinate system of the data points so the x acceleration is describing the acceleration in the forward direction. The interactive graph below shows the data points for a particular bike aligned offaxis.
+
+{% include_relative images/uncalibrated.html %}
+
+
 
 
 
