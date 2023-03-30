@@ -161,6 +161,27 @@ I added a 2d view of each acceleration pair. The y-z acceleration view shows the
 
 There is still one more step left. From this analysis we cannot say for certain whether the y or z axis is up/down or left/right. For this we use data from when the bike is stationary and switched on. 
 
+# Detecting accidents
+Once the acceleration data is using the correct coordinate system a heuristic set of rules can be used to detect whether an accident has occurred. I will outline this briefly.
+
+1. Check if acceleration due to gravity is no longer working on the z axis.
+2. If so, load previous data and check speed and/or if bike suddenly slowed down prior to change in gravity.
+3. If accident is suspected then trigger further processes.
+
+# Implementing on AWS
+
+Implementing this on cloud infrastructure requires a few steps:
+
+1. Before this algorithm can be implemented enough data points of the motorcycle moving need to be collected.
+2. Once enough is collected the new coordinate system can be calculated.
+3. Acceleration data points need to be transformed into the new coordinate system.
+
+Transforming the incoming data points into new coordinate system is simply a matrix multiplication of the calculated PCA components. Below I sketched out a simple AWS implementation.
+
+![aws](images/AWS_process.png)
+
+
+
 
 
 
