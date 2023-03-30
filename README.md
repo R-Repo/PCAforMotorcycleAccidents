@@ -13,18 +13,18 @@ Once the devices are calibrated detecting accidents are trivial - We just need t
 
 ## Context for the problem
 
-Insurance black boxes were designed for cars. Retrofitting them on to motorcycles means the inbuilt algrorithms have to be modified. In particular:
+Insurance black boxes were designed for cars. Retrofitting them on to motorcycles means the inbuilt algorithms have to be modified. In particular:
 
 - Devices have to fitted at awkward angles. This was throwing off the device calibration (i.e. the device does not know which way is forward)
-- The devices are placed close to the engine. This means vibration from the engine presents itself as significant noise to the acclerometer.
+- The devices are placed close to the engine. This means vibration from the engine presents itself as significant noise to the accelerometer.
 - Motorcycles are much more bumpy then cars.
 
 The insurance boxes have two sensors:
 
 - GPS 
-- Acceromter
+- Accelerometer
 
-Notetably there is no gyroscope (you don't need on a car!). The sensors store information locally at 1 second intervals and then push to an Azure SQL database whenever a mobile internet connection can be established.
+Notetably there is no gyroscope (you don't need on a car!). The sensors store information locally at 1 second intervals and then push to an AWS SQL database whenever a mobile internet connection can be established.
 
 ![Insurance box location](images/motoinsurance.png)
 
@@ -32,9 +32,9 @@ Hopefully my expertly drawn addition helps with understanding where these boxes 
 
 ## Wider context
 
-Motor vechile accidents are a major problem in East Africa (where the company I developed this solution for is from). Moreover motocycle taxis (or Motos as they are called locally) are a the main form of transport for most of the population.
+Motor vehicle accidents are a major problem in East Africa (where the company I developed this solution for is from). Moreover motorcycle taxis (or Motos as they are called locally) are a the main form of transport for most of the population.
 
-Table below shows that motorvechile deaths per 100,000 inhabitants are globally highest in Africa. The system being designed will be able to alert emergency services when a moto-taxi has had a serious colision.
+Table below shows that motor vehicle deaths per 100,000 inhabitants are globally highest in Africa. The system being designed will be able to alert emergency services when a moto-taxi has had a serious collision.
 
 | Country/region        |   Deaths per 100k/year |
 |:----------------------|-----------------------:|
@@ -48,7 +48,7 @@ Table below shows that motorvechile deaths per 100,000 inhabitants are globally 
 
 [wiki source](https://en.wikipedia.org/wiki/List_of_countries_by_traffic-related_death_rate)
 
-Kenya is particurally bad globally with 29.1 deaths per 100k inhabitants per year. Which means you have a 0.0291% chance of dying in a vehcile accident (Interesting fact: Obama's dad died in a car collision in Kenya). 
+Kenya is particularly bad globally with 29.1 deaths per 100k inhabitants per year. Which means you have a 0.0291% chance of dying in a vehicle accident (Interesting fact: Obama's dad died in a car collision in Kenya). 
 
 | Country/region   | Continent   |   Deaths per 100k/year |   Percentile |
 |:-----------------|:------------|-----------------------:|-------------:|
@@ -179,6 +179,7 @@ Implementing this on cloud infrastructure requires a few steps:
 Transforming the incoming data points into new coordinate system is simply a matrix multiplication of the calculated PCA components. Below I sketched out a simple AWS implementation.
 
 ![aws](images/AWS_process.png)
+
 
 
 
