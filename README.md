@@ -24,7 +24,7 @@ The insurance boxes have two sensors:
 - GPS 
 - Accelerometer
 
-Notetably there is no gyroscope (you don't need on a car!). The sensors store information locally at 1 second intervals and then push to an AWS SQL database whenever a mobile internet connection can be established.
+Notetably there is no gyroscope (you don't need one in a car!). The sensors store information locally at 1 second intervals and then push to an AWS SQL database whenever a mobile internet connection can be established.
 
 ![Insurance box location](images/motoinsurance.png)
 
