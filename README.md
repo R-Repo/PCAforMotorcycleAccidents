@@ -69,7 +69,105 @@ Below is a few rows and important columns from the dataset.
 
 This bike is uncalibrated so the x acceleration is not necessarily the forward acceleration. We need to change the coordinate system of the data points so the x acceleration is describing the acceleration in the forward direction. The interactive graph below shows the data points for a particular bike aligned offaxis.
 
-{% include_relative images/uncalibrated.html %}
+ - There are no labels so we need to develop an unsupervised method to automatically calibrate the device based on the data above.
+
+ ## Visualizing the data
+
+ ![Animation of data](images/unclaibrated.gif)
+
+ Since the device is uncalibrated the forward acceleration does not move along the xaxis. Instead a forward movement is captured as a diagonal acceleration within the standard coordinate system. Since there are many different motorbike models each device will need to be automatically calibrated individually.
+
+ # Formulating the calibration into PCA problem
+
+ Principle component analysis is generally used as a dimension reduction technique. The data is projected onto a new dimension which is a linear combination of the existing features. The first principle component is a line which captures the largest range of variance within the dataset. The second principle component is a line orthogonal to the first which captures the next most range of variance and so on. The idea being you can reduce the number of features by using a new set of generated features which capture the majority of variance in the dataset. Ultimately, PCA is a change of basis. 
+
+ Using the context of this problem we can apply PCA not to reduce the number of features but to use a robust technique to find a new coordinate system for our acceleration data. 
+
+ Things we know:
+ - The largest change (variance) in acceleration is from forward-backward movement (acceleration and braking).
+ - Orthogonal to forward and backward movements are left-right and up-down.
+ - The direction of gravity can be found when the is not moving.
+
+ With the data and these three bits of information we can build a method to automatically calibrate the devices.
+
+ Below I've tried to label the acceleration graph to highlight these points.
+
+ ![Forward-Backward](images/PCA1.png)
+
+ ![left-right/up-down](images/PCA23.png)
+
+# Applying to the DataSet
+
+The steps are relatively straightforward and well documented so I'll be brief:
+
+1. Remove all data points for when the bike is stationary (as this includes when the bike at an angle on it's stand)
+2. Centre the data
+3. Apply the PCA algorithm
+4. Use all three Principle Components to change the basis of the entire dataset.
+
+The code for all of the above is in the MotorcycleAccidentSummary.ipynb notebook within this repository.
+
+Once the data is centered applying PCA to the data is as simple. We are using 3 principle components with 3 dimensions of data so no information is lost.
+
+```
+
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=3)
+principalComponents = pca.fit_transform(bike_df_centered)
+
+print(pca.components_)
+
+[[-0.01534458  0.48943954  0.87190222]
+ [ 0.03486902  0.87173642 -0.48873281]
+ [-0.99927408  0.02290297 -0.0304427 ]]
+
+```
+
+The rows are the principle components in order. We can visualize these components on the original data by applying pca transform to the the standard co-ordinate axis.
+
+```
+axis_values = np.arange(-3,4)
+zero_values = [0]*len(x_values)
+x_axis = np.stack((axis_values, zero_values, zero_values), axis=-1)
+y_axis = np.stack((zero_values, axis_values, zero_values), axis=-1)
+z_axis = np.stack((zero_values,zero_values, axis_values), axis=-1)
+
+# We transform the x,y,z axis into the new axis.
+transformed_axis_x = pca.transform(x_axis)
+transformed_axis_y = pca.transform(y_axis)
+transformed_axis_z = pca.transform(z_axis) 
+
+```
+
+Plotting the transformed axis onto the uncalibrated data we see that the new basis lines well with our understanding the motorcycle
+
+![New-axis](images/pca_results.gif)
+
+Now the only thing left to do is transform the data into it's new basis. This is done simply by applying the pca transform to the dataset.
+
+```
+transformed_df = pca.transform(bike_df_centered)
+
+```
+
+Now the acceleration data lines up correctly with the axis. 
+
+![transformed_data](images/transformed_data.gif)
+
+I added a 2d view of each acceleration pair. The y-z acceleration view shows the data points are now lines up properly with the axis. 
+
+![2dview](images/2dview.png)
+
+There is still one more step left. From this analysis we cannot say for certain whether the y or z axis is up/down or left/right. For this we use data from when the bike is stationary and switched on. 
+
+
+
+
+
+
+
+
 
 
 
