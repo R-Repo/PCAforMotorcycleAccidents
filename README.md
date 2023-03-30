@@ -1,8 +1,14 @@
-# PCA for Motorcycle Accidents
+
+
+# Principle Component Analysis for Detecting Motorcycle Accidents
+<p align="center">
+  <img src="images/pca_results.gif" width="250" height="200">
+</p>
+
 
 This notebook highlights an interesting solution I discovered when working on a professional project to automatically detect motorcycle collisions with an insurance black box. The solution was developed for a company delivering solutions for East Africa where motorcycles transport is the most common form of transportation.
 
-I have permission to share these results. Since much of the work I completed is deemed intellectual property for the company I'm only including a small subsection. 
+I have permission to share these results. Although much of the work I completed is deemed intellectual property so I'm only including a small subsection. 
 
 ## The problem
 
