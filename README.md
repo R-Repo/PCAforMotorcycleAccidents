@@ -32,7 +32,7 @@ Hopefully my expertly drawn addition helps with understanding where these boxes 
 
 ## Wider context
 
-Motor vehicle accidents are a major problem in East Africa (where the company I developed this solution for is from). Moreover motorcycle taxis (or Motos as they are called locally) are a the main form of transport for most of the population.
+Motor vehicle accidents are a major problem in East Africa. Motorcycle taxis are a the main form of transport for most of the population.
 
 Table below shows that motor vehicle deaths per 100,000 inhabitants are globally highest in Africa. The system being designed will be able to alert emergency services when a moto-taxi has had a serious collision.
 
@@ -75,7 +75,7 @@ This bike is uncalibrated so the x acceleration is not necessarily the forward a
 
  ![Animation of data](images/unclaibrated.gif)
 
- Since the device is uncalibrated the forward acceleration does not move along the xaxis. Instead a forward movement is captured as a diagonal acceleration within the standard coordinate system. Since there are many different motorbike models each device will need to be automatically calibrated individually.
+ Since the device is uncalibrated the forward acceleration does not move along the x-axis. Instead a forward movement is captured as a diagonal acceleration within the standard coordinate system. Since there are many different motorbike models each device will need to be automatically calibrated individually.
 
  # Formulating the calibration into PCA problem
 
