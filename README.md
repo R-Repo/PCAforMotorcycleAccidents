@@ -14,7 +14,7 @@ I have permission to share these results. Although much of the work I completed 
 
 > Automatically calibrate the insurance box without physical intervention in order to automatically detect when a motorcycle has an accident.
 
-Once the devices are calibrated detecting accidents are trivial - We just need to know when the bike is on it's side. In particular we just need to know when acceleration due to gravity is no longer downwards.
+Once the devices are calibrated, detection of accidents are trivial. We just need to know when the bike is on it's side. In particular we just need to know when acceleration due to gravity is no longer downwards.
 
 
 ## Context for the problem
