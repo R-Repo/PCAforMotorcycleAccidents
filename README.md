@@ -54,7 +54,7 @@ Table below shows that motor vehicle deaths per 100,000 inhabitants are globally
 
 [wiki source](https://en.wikipedia.org/wiki/List_of_countries_by_traffic-related_death_rate)
 
-Kenya is particularly bad globally with 29.1 deaths per 100k inhabitants per year. Which means you have a 0.0291% chance of dying in a vehicle accident (Interesting fact: Obama's dad died in a car collision in Kenya). 
+Kenya is particularly bad globally with 29.1 deaths per 100k inhabitants per year. Which means each year you have a 0.0291% chance of dying in a vehicle accident (Interesting fact: Obama's dad died in a car collision in Kenya). 
 
 | Country/region   | Continent   |   Deaths per 100k/year |   Percentile |
 |:-----------------|:------------|-----------------------:|-------------:|
